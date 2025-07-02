@@ -1,0 +1,29 @@
+all:
+	@echo "Only can use \"make debug\", and \"make run\" or \"make runtime\""
+
+runtime:
+	@rm -rf class bin manifest.mf
+	@mkdir -p class bin
+	@ecj -d class src/Main.java # Add another java external files
+	@echo "Main-Class: Main" > manifest.mf
+	@jar cvfm bin/Main.jar manifest.mf -C class .
+	@clear
+	@java -jar bin/Main.jar
+
+debug:
+	rm -rf class bin manifest.mf
+	mkdir -p class bin
+	ecj -d class src/Main.java # Add another java external files
+	echo "Main-Class: Main" > manifest.mf
+	jar cvfm bin/Main.jar manifest.mf -C class .
+
+run:
+	@java -jar bin/Main.jar
+
+check:
+	@jar tf bin/Main.jar
+
+clean:
+	@rm -rf class
+	@rm -rf bin
+	@rm -rf manifest.mf

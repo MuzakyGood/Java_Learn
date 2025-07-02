@@ -1,0 +1,5 @@
+bin
+*.bash
+*.sh
+*.bat
+*.shell
