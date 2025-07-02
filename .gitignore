@@ -1,5 +1,8 @@
+tempMake
 bin
 *.bash
 *.sh
 *.bat
 *.shell
+*.class
+*.mf
